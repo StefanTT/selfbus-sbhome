@@ -1,0 +1,5 @@
+#sbhome configuration
+#Sat May 04 09:09:21 CEST 2013
+busInterface.type=ip
+busInterface.host=localhost
+busInterface.port=3671

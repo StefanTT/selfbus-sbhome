@@ -1,4 +1,4 @@
-selfbus-sbhome
-==============
+sbhome
+======
 
-Proof of concept web visualisation for EIB
+Selfbus Home Server

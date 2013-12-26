@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<project name="Example Project" startPanel="mainPanel">
+ <categories>
+  <category id="light" label="Lighting" />
+  <category id="heating" label="Heating" />
+ </categories>
+ <variables>
+  <variable name="b1" type="bool" />
+  <variable name="b2" type="bool" />
+  <variable name="b3" type="bool" />
+ </variables>
+ <groups>
+  <group name="lightAll" addr="1/0/100" type="bool" category="light" />
+  <group name="light1" addr="1/0/101" type="bool" category="light" />
+  <group name="light2" addr="1/0/102" type="unsigned byte" category="light" />
+ </groups>
+ <moduleTypes>
+  <moduleType name="logic.and">
+   <input name="in1" type="bool" />
+   <input name="in2" type="bool" />
+   <output name="out" type="bool" />
+   <variable name="tmp" type="bool" />
+   <variable name="tmp2" type="bool" />
+   <code>
+    <![CDATA[ tmp = in1 && in2; out = tmp; ]]>
+   </code>
+  </moduleType>
+  <moduleType name="logic.or">
+   <input name="in1" type="bool" />
+   <input name="in2" type="bool" />
+   <output name="out" type="bool" />
+   <code>
+    <![CDATA[ out = in1 || in2 ]]>
+   </code>
+  </moduleType>
+ </moduleTypes>
+ <modules>
+  <module name="my.and" type = "logic.and" />
+ </modules>
+ <connections>
+  <connection from="b1" to="my.and.in1" />
+  <connection from="b2" to="my.and.in1" />
+  <connection from="my.and.out" to="b3" />
+ </connections>
+ <rooms>
+  <room id="living" label="Living Room">
+   <item label="Central light" variable="light.1" />
+   <item label="Background light" variable="light.2" />
+  </room>
+ </rooms>
+ <panels>
+  <panel id="mainPanel">
+   <horizontalLayout>
+    <verticalLayout width="200">
+     <foreach var="room" items="rooms">
+      <button text="${room.label}" />
+     </foreach>
+     <foreach var="category" items="categories">
+      <button text="${category.label}" />
+     </foreach>
+    </verticalLayout>
+   </horizontalLayout>
+  </panel>
+ </panels>
+</project>

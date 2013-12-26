@@ -1,0 +1,23 @@
+.navbar {
+   border-bottom: 1px solid #444;
+}
+
+.invisible {
+   display: none;
+}
+
+.v-button-wrap {
+   vertical-align: bottom;
+}
+
+.v-panel-content {
+   padding: 6px;
+}
+
+.switch {
+   min-width: 4em;
+}
+
+.paragraph {
+   margin-top: 20px;
+}
